@@ -12,7 +12,7 @@ subjects = {'1_002', '1_003'};
 for isbj = 1:length(subjects)
     wmMaskFile = fullfile(anatomypath,subjects{isbj},'diffusion_data', '1000', 'Anatomy', 'wm_mask.nii.gz');
     
-    fs_wm = fullfile(anatomypath,subjects{isbj},'diffusion_directory', 'Anatomy', 't1_acpc_bet.nii.gz');
+    fs_wm = fullfile(anatomypath,subjects{isbj},'diffusion_directory', 'Anatomy', 'aparc+aseg.nii.gz');
     fprintf('\n loading %s \n',fs_wm);
     wm = niftiRead(fs_wm);
     wm.fname = wmMaskFile;
