@@ -5,29 +5,30 @@
 ## and deterministic tractography based on the tensor model or on constrained spherical deconvolution. 
 ##
 ## Brent McPherson and Franco Pestilli Indiana University 2016; 
-## adapted by Brad Caron (IU Graduate Student, 2016)
+##
+## 2017 Brad Caron Indiana University, Pestilli Lab
 
 ## load necessary modules on the Karst cluster environment
 module unload mrtrix/0.3.12
 module load mrtrix/0.2.12
 
-## The script requires a single input tha tis the folder name for the subject that needs to be processed
+## The script requires a single input that is the folder name for the subject that needs to be processed
 ## The corrent version of the script handles only data on the local Indiana University Cluster Systems
-## Under the project lifebid. There are two current data sets there the HCP and STN96
+## Under the project lifebid.
 SUBJ=$1
 
 ## Set paths to diffusion data directories
 
 ## Concussion_Prone dataset
-DWIFILENAME=data_b1000_aligned_trilin
-TOPDIR=/N/dc2/projects/lifebid/Concussion/concussion_test/1_5/diffusion_data/1000
+DWIFILENAME=data_b1000_aligned_trilin_noMEC
+TOPDIR=/N/dc2/projects/lifebid/Concussion/concussion_test/1_005/diffusion_data/1000
 ANATDIR=$TOPDIR/Anatomy/
 OUTDIR=$TOPDIR/fibers_new
 
 mkdir -v $OUTDIR
 
 ## Number of fibers requested and max number attempted to hit the number.
-NUMFIBERS=500000
+NUMFIBERS=60,000
 MAXNUMFIBERSATTEMPTED=1000000
 
 ##
